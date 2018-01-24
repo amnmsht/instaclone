@@ -1,20 +1,29 @@
-<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
+<div class="container">   <!--全体を囲むコンテナ-->
+  <div class="main posts-form">
+    
+    <%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
 
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
-      <ul>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>
+        <% end %>
+        
+        <form>
+          <div class="form-group">
+            <%= form.label :content %>
+            <%= form.text_field :content,class:"form-control" %>
+          </div>
+            <p><%= form.submit"投稿する",class: 'btn btn-success btn-sm' %></P>
+            <% end %>
+        </form>
+          <p><%= link_to "投稿一覧画面にもどる", posts_path,class: 'btn btn-warning btn-sm' %></p>
+        </div>
+      </div>
 
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="post_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>

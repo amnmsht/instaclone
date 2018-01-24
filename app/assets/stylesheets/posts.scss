@@ -1,3 +1,40 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+h1, h2, h3, h4, h5, h6, p {
+  text-align: center;
+}
+
+.container {
+  max-width: 100%;
+  margin: 50px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+}
+
+.main-header{
+ width: 100%;
+}
+
+.main-header img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.content li{
+ padding:5px;
+}
+
+ ul li {
+  list-style:none;
+ }
+ 
+ .footer{
+  height:45px;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  padding-top:10px;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+  border-style: solid; border-color: #D3D3D3;border-width:1px ;
+ }

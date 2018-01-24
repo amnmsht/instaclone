@@ -1,14 +1,19 @@
-<h3>以下の内容で送信する。</h3>
+<div class="container">
+  
+  <h3>以下の内容で送信する。</h3>
 
-  <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+    <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+    <%= form.hidden_field :content %>
 
-  <%= form.hidden_field :content %>
-
-  <p>本文:<%= @post.content %></p>
-  <%= form.submit  "登録する" %>
+  <div class="well">
+    <p>本文:<%= @post.content %></p>
+    <p><%= form.submit  "登録する",class:"btn btn-success btn-sm" %></p>
+  </div>
 <% end %>
 
 <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :content %>
-  <%= form.submit "もどる",name: 'back' %>
+  <p><%= form.submit "もどる", name: 'back',class:"btn btn-warning btn-sm"%></p>
 <% end %>
+</div>
+
