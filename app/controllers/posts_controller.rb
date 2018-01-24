@@ -9,8 +9,17 @@ class PostsController < ApplicationController
       @posts = Post.all
     end
     
-    def new
-      @post=Post.new
+   def new
+    if params[:back]
+      @post = Post.new(post_params)
+    else
+      @post = Post.new
+    end
+  end
+    
+    def confirm
+      @post = Post.new(post_params)
+      render :new if @post.invalid?
     end
     
     def create
