@@ -2,12 +2,46 @@ h1, h2, h3, h4, h5, h6, p {
   text-align: center;
 }
 
+.jumbotron-extend {
+    position: relative;
+    height: 100vh;
+    
+    min-height: 300px;
+    background: url("berlin.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.jumbotron-container {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.site-name {
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+}
+
+.btn-black {
+    border-radius: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Avenir', serif;
+}
+
+.btn-black:hover {
+    background-color: #fff;
+    color: #000;
+}
+
 .container {
   max-width: 100%;
   margin: 50px auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  clear: both;
+  margin: 50px　0px　50px　0px;
 }
 
 .main-header{
