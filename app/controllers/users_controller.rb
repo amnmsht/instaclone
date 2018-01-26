@@ -6,8 +6,17 @@ class UsersController < ApplicationController
   
   def create
        @user = User.create(user_params)
+         if @user.save
+           redirect_to user_path(@user.id)
+       else
+           render 'new'
+  end
   end
   
+  def show
+      @user = User.find(params[:id])
+      @favorite_posts = @user.favorites
+  end
   
   private
   def user_params

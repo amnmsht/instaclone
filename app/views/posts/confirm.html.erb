@@ -1,6 +1,6 @@
 <div class="container">
   
-  <h3>以下の内容で送信する。</h3>
+  <h3 class ="page-header">以下の内容で送信する。</h3>
 
     <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
     <%= form.hidden_field :content %>

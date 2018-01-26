@@ -1,28 +1,33 @@
-<h1>投稿一覧</h1>
+<h1 class = "page-header">Index</h1>
 
-<p><%#= notice %></p>
-
+  <!--<p><%#= notice %></p>-->
+  
 <table class= "table table table-hover">
   <thead="row">
     <tr>
-      <th class-"col-md-9">投稿内容</th>
-      <th class-"col-md-1"></th>
-      <th class-"col-md-1"></th>
-      <th class-"col-md-1"></th>
-    </tr>
-  </thead>  
-<tbody="row">
+        <th class-"col-md-7">Content</th>
+        <th class-"col-md-2">Name</th>
+        <th class-"col-md-1"></th>
+        <th class-"col-md-1"></th>
+        <th class-"col-md-1"></th>
+      </tr>
+    </thead>
+  <tbody="row">
     <% @posts.each do |post| %>
       <tr>
-        <td class="col-md-9"><%= post.content %></td>
-        <td class="col-md-1"><%= link_to "詳細", post_path(post.id), class: 'btn btn-info btn-sm' %></td>
-        <td class="col-md-1"><%= link_to "編集", edit_post_path(post.id), class: 'btn btn-default btn-sm'%></td>
-        <td class="col-md-1"><%= link_to "削除", post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger btn-sm' %></td>
+        <td class="col-md-7"><%= post.content %></td>
+        <td class-"col-md-2"><%= post.user.name %></td>
+        <% if logged_in? && current_user.id == post.user_id %>
+        <td class="col-md-1"><%= link_to "Details", post_path(post.id), class: 'btn btn-info btn-sm' %></td>
+        <td class="col-md-1"><%= link_to "Edit", edit_post_path(post.id), class: 'btn btn-default btn-sm'%></td>
+        <td class="col-md-1"><%= link_to "Delete", post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger btn-sm' %></td>
+        <% else %>
+        <td class="col-md-1"><%= link_to "Details", post_path(post.id), class: 'btn btn-info btn-sm' %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>
-</table>
+  </table>
 
-<P><%= link_to '新しく投稿する', new_post_path, class: 'btn btn-success btn-sm' %></p>
-
+  <P><%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-sm' %></p>
 </div>

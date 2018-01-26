@@ -1,0 +1,26 @@
+<div class = "container">
+  <div class="well">
+    <h1 class = "page-header"><%= @user.name %>のページ</h1 >
+    <p>email：<%= @user.email %></p>
+  </div>
+  <div class="well">
+    <h1 class = "page-header">お気に入りの一覧</h1>
+    <table class= "table table table-hover">
+      <thead="row">
+        <tr>
+          <th class-"col-md-10">Content</th>
+          <th class-"col-md-2">Name</th>
+        </tr>
+      </thead>
+      <tbody="row">
+        <% @favorite_posts.each do |favorite_post| %>
+        <tr>
+        <td class="col-md-10"><%= favorite_post.post.content%></td>
+        <td class="col-md-2"><%= favorite_post.post.user.name  %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+

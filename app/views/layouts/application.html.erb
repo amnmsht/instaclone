@@ -21,9 +21,17 @@
         </div>
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="nav navbar-nav">
-            <li><%= link_to "TOP",root_path %></li>
-            <li><%= link_to "INDEX",posts_path %></li>
-            <li><%= link_to "NEW POST ",new_post_path %></li>
+            <li><%= link_to "Top",root_path %></li>
+            <li><%= link_to "Index",posts_path %></li>
+            <li><%= link_to "New Post ",new_post_path %></li>
+            <% if logged_in? %>
+            <li><%= link_to "MyPage", user_path(current_user.id) %></li>
+            <li><%= link_to "LogOut", session_path(current_user.id), method: :delete %></li>
+            <li><%= link_to "Login As: #{current_user.name}", user_path(current_user.id) %></li>
+            <% else %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Login", new_session_path %></li>
+            <% end %>            
           </ul>
         </div>
       </div>
