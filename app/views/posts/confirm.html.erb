@@ -7,13 +7,13 @@
 
   <div class="well">
     <p>本文:<%= @post.content %></p>
-    <p><%= form.submit  "登録する",class:"btn btn-success btn-sm" %></p>
+    <p><%= form.submit  "Post",class:"btn btn-success btn-sm" %></p>
   </div>
 <% end %>
 
 <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :content %>
-  <p><%= form.submit "もどる", name: 'back',class:"btn btn-warning btn-sm"%></p>
+  <p><%= form.submit "Back", name: 'back',class:"btn btn-warning btn-sm"%></p>
 <% end %>
 </div>
 

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
 
-  get 'sessions/new'
+  #get 'sessions/new'
 
   root "posts#top"
   resources :posts do
