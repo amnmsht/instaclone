@@ -1,12 +1,14 @@
 <div class="container">
   
-  <h3 class ="page-header">以下の内容で送信する。</h3>
+  <h3 class ="page-header">この写真を投稿してよいですか？</h3>
 
     <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
     <%= form.hidden_field :content %>
 
   <div class="well">
-    <p>本文:<%= @post.content %></p>
+    <p><%= hidden_field_tag :"cache[image]",@post.image.cache_name %></p><!--画像追加-->
+    <p>Image：<%= image_tag(@post.image.url) if @post.image.present?%></p><!--画像追加-->
+    <p>Comment:<%= @post.content %></p>
     <p><%= form.submit  "Post",class:"btn btn-success btn-sm" %></p>
   </div>
 <% end %>

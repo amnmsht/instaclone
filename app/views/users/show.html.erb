@@ -1,26 +1,28 @@
 <div class = "container">
-  <div class="well">
+  <!--<div class="well">-->
     <h3 class = "page-header"><%= @user.name %>のページ</h1 >
     <p>email：<%= @user.email %></p>
-  </div>
-  <div class="well">
+  <!--</div>-->
+  <!--<div class="well">-->
     <h3 class = "page-header">お気に入りの一覧</h1>
     <table class= "table table table-hover">
       <thead="row">
         <tr>
-          <th class-"col-md-10">投稿内容</th>
-          <th class-"col-md-2">お名前</th>
+          <th class-"col-md-5">Image</th>
+          <th class-"col-md-3">Content</th>
+          <th class-"col-md-2">User</th></th>
         </tr>
       </thead>
       <tbody="row">
         <% @favorite_posts.each do |favorite_post| %>
         <tr>
-        <td class="col-md-10"><%= favorite_post.post.content%></td>
+        <td class="col-md-5"><%= image_tag(favorite_post.post.image_url) if favorite_post.post.image.present? %></td>           
+        <td class="col-md-3"><%= favorite_post.post.content%></td>
         <td class="col-md-2"><%= favorite_post.post.user.name  %></td>
         </tr>
         <% end %>
     </tbody>
   </table>
-  </div>
+  <!--</div>-->
 </div>
 

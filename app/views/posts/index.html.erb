@@ -1,3 +1,4 @@
+<div class = "container">
 <h1 class = "page-header">Index</h1>
 
   <!--<p><%#= notice %></p>-->
@@ -5,8 +6,9 @@
 <table class= "table table table-hover">
   <thead="row">
     <tr>
-        <th class-"col-md-7">投稿内容</th>
-        <th class-"col-md-2">お名前</th>
+        <th class-"col-md-5">Image</th><!--追加-->
+        <th class-"col-md-3">Coment</th>
+        <th class-"col-md-1">User</th>
         <th class-"col-md-1"></th>
         <th class-"col-md-1"></th>
         <th class-"col-md-1"></th>
@@ -15,10 +17,11 @@
   <tbody="row">
     <% @posts.each do |post| %>
       <tr>
-        <td class="col-md-7"><%= post.content %></td>
-        <td class-"col-md-2"><%= post.user.name %></td>
+        <td class="col-md-5"><%= image_tag(post.image_url) if post.image.present? %></td><!--画像追加-->
+        <td class="col-md-3"><%= post.content %></td>
+        <td class-"col-md-1"><%= post.user.name %></td>
         <% if logged_in? && current_user.id == post.user_id %>
-        <td class="col-md-1"><%= link_to "Details", post_path(post.id), class: 'btn btn-info btn-sm' %></td>
+        <td class="col-md-1"><%= link_to "Show", post_path(post.id), class: 'btn btn-info btn-sm' %></td>
         <td class="col-md-1"><%= link_to "Edit", edit_post_path(post.id), class: 'btn btn-default btn-sm'%></td>
         <td class="col-md-1"><%= link_to "Delete", post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger btn-sm' %></td>
         <% else %>
@@ -28,6 +31,3 @@
       <% end %>
     </tbody>
   </table>
-
-  <P><%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-sm' %></p>
-</div>

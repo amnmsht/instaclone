@@ -1,17 +1,21 @@
 <di class = "container">
   <h1 class = "page-header">Log in</h1>
-    <div class = "well">
+    <div class ="well">
     <%= form_with(scope: :session, url: sessions_path) do |f| %>
   
     <form>
       <div class = "form-group">
         <%= f.label :メールアドレス %>
+        <div class="col-md-offset-3 col-md-6">
         <%= f.email_field :email,class:"form-control" %>
+        </div>
       </div>
   
       <div class = "form-group">
         <%= f.label :パスワード %>
+        <div class="col-md-offset-3 col-md-6">
         <%= f.password_field :password,class:"form-control" %>
+        </div>
       </div>
   
       <p><%= f.submit "Log in",class:'btn btn-info btn-sm' %></p>

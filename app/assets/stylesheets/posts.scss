@@ -1,3 +1,5 @@
+body { padding-top: 50px; }
+
 h1, h2, h3, h4, h5, h6, p,li {
   text-align: center;
   font-family: 'Playfair Display', serif;  
@@ -47,10 +49,13 @@ h1, h2, h3, h4, h5, h6, p,li {
     color: #000;
 }
 
+.container-fluid {
+  max-width: auto;
+}
+
 .container {
-  max-width: 100%;
+  /*max-width: auto;*/
   margin: 50px auto;
-  margin: 50px　0px　50px　0px;
 }
 
 .main-header{
@@ -81,3 +86,7 @@ h1, h2, h3, h4, h5, h6, p,li {
   width: 100%;
   border-style: solid; border-color: #D3D3D3;border-width:1px ;
  }
+ 
+ .well{
+    width: 100%;
+}
